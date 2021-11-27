@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block body %}
+    
+
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/about-bg.jpg') }}     ')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="page-heading">
+                            <h1>Edit Your Blog</h1>
+                            <span class="subheading">{{user}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Main Content-->
+        <main class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                      <a href="/show"><button type="submit" class="btn btn-primary" id="sendMessageButton">Show All Blogs</button></a>
+                        <button onclick="window.location='http://Localhost:8000/dropsession'" type="submit" class="btn btn-danger" id="sendMessageButton">LogOut from  {{user}}</button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                  <div class="col-lg-8 col-md-10 mx-auto">
+                   
+                    <p class="text-success">Want To Edit A Blog-? Fill out the form below!! </p>
+                    
+                    <!-- Contact Form - Enter your email address on line 19 of the mail/contact_me.php file to make this form work. -->
+                    <!-- WARNING: Some web hosts do not allow emails to be sent through forms to common mail hosts like Gmail or Yahoo. It's recommended that you use a private domain email address! -->
+                    <!-- To use the contact form, your site must be on a live web host with PHP! The form will not work locally! -->
+                    <form name="sentMessage" id="contactForm" action = "/edit/{{posts.sno}}" method="post" novalidate>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                          <label>Title</label>
+                          <input type="text" class="form-control" placeholder="Title" value="{{posts.title}}" id="title" name='title' required data-validation-required-message="Please Enter The Title."required>
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                          <label>Slug</label>
+                          <input type="text" class="form-control" placeholder="Slug" value="{{posts.slug}}" id="slug" name="slug" required data-validation-required-message="Please Enter Your Slug."required>
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                          <label>Content</label>
+                          <textarea rows="5" class="form-control" placeholder="Content" value="{{posts.content}}" name = "content" id="content" required data-validation-required-message="Please Enter Your Content."required>{{posts.content}}</textarea>
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <div class="control-group">
+                        <div class="form-group floating-label-form-group controls">
+                          <label>Tagline</label>
+                          <textarea rows="5" class="form-control" placeholder="Tagline" name = "tagline" id="tagline" required data-validation-required-message="Please Enter Your Tagline."required>{{posts.tagline}}</textarea>
+                          <p class="help-block text-danger"></p>
+                        </div>
+                      </div>
+                      <br>
+                      <div id="success"></div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary" id="sendMessageButton">Update</button>
+                      </div>
+                    </form>
+                  </div>
+                  <br>
+
+                 
+                </div>
+              </div>
+        </main>
+        {% endblock  %}

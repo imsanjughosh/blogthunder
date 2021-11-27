@@ -1,0 +1,16 @@
+{
+    "params":
+    {
+        "local_server":"True",
+        "local_url":"mysql://root:@localhost/blog",
+        "prod_url":"mysql://root:@localhost/blog",
+        "fb_url":"https://www.facebook.com/imsanjughosh",
+        "ins_url":"https://www.facebook.com/imsanjughosh",
+        "git_url":"https://www.facebook.com/imsanjughosh",
+        "blog_name":"BlogThunder",
+        "gmail-user":"Your email",
+        "gmail-password":"your password",
+        "no_of_posts":5,
+        "upload_location":"F:\\flask\\static"
+    }
+}
